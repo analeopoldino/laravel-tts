@@ -1,14 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
-Route::get('/', function () {
-    return view('welcome');
-});
 use App\Http\Controllers\TextToSpeechController;
 
-// Rota para MOSTRAR o formulário quando o usuário acessar a página inicial
+// Rota criada para mostrar o formulário para o usuário ao acessar a página
 Route::get('/', [TextToSpeechController::class, 'showForm'])->name('tts.form');
 
-// Rota para PROCESSAR o texto quando o usuário enviar o formulário
+// Rota criada para processar o texto quando o usuário enviar o formulário
 Route::post('/generate-speech', [TextToSpeechController::class, 'generateSpeech'])->name('tts.generate');
